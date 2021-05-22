@@ -1,5 +1,9 @@
-import { Router } from "express";
+import { Router } from 'express';
+import { ComicsConsulta } from './comics-consulta/comics';
 
+const comicsget = new ComicsConsulta();
 const router = Router();
 
-export { router };
+router.get('/', comicsget.execute);
+
+export default router;
