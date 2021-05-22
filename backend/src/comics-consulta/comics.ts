@@ -1,8 +1,7 @@
-import { Request, Response } from 'express';
 import { marvelApi } from '../api-marvel';
 
 class ComicsConsulta {
-	async execute(req: Request, res: Response) {
+	async execute() {
 		const { data } = await marvelApi.get('/comics');
 		const dados = data.data.results.map((dado: any) => {
 			return {
@@ -14,7 +13,7 @@ class ComicsConsulta {
 			};
 		});
 		console.log();
-		return res.json({ dados });
+		return { dados };
 	}
 }
 
