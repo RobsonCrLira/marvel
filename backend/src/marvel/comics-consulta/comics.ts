@@ -12,7 +12,6 @@ class ComicsConsulta {
 				comic: dado.comic,
 			};
 		});
-		console.log();
 		return { dados };
 	}
 }

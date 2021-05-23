@@ -1,9 +1,12 @@
 import 'reflect-metadata';
 import express from 'express';
-import routes from './routes';
+import './database';
+import router from './routes';
+
 const app = express();
 
 app.use(express.json());
-app.use(routes);
 
-app.listen(3666, () => console.log('Server Sarted'));
+app.use(router);
+
+app.listen(process.env.port, () => console.log(`Server Starter in port:${process.env.port}`));
