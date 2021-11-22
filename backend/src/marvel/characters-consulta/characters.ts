@@ -8,8 +8,19 @@ class CharactersConsulta {
 				id: dado.id,
 				name: dado.name,
 				description: dado.description,
-				thumbnail: dado.thumbnail,
-				comic: dado.comic,
+				thumbnail: [dado.thumbnail.path, dado.thumbnail.extension],
+			};
+		});
+		return { dados };
+	}
+	async executeID(id: string) {
+		const { data } = await marvelApi.get(`/characters/${id}`);
+		const dados = data.data.results.map((dado: any) => {
+			return {
+				id: dado.id,
+				name: dado.name,
+				description: dado.description,
+				thumbnail: [dado.thumbnail.path, dado.thumbnail.extension],
 			};
 		});
 		return { dados };

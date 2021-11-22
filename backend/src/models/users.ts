@@ -7,10 +7,16 @@ class User {
     id: string;
 
     @Column()
+    nome: string
+
+    @Column()
     email: string;
 
     @Column()
     password: string;
+
+    @Column()
+    data_nasc: Date;
 
     @BeforeInsert()
     @BeforeUpdate()

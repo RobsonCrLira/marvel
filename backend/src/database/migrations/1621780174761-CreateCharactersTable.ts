@@ -17,13 +17,18 @@ export class CreateCharactersTable1621780174761 implements MigrationInterface {
 				{
 					name: 'id',
 					type: 'int',
+					isUnique: true
 				},
 				{
-					name: 'characters_name',
+					name: 'name',
 					type: 'varchar',
 				},
 				{
 					name: 'description',
+					type: 'text',
+				},
+				{
+					name: 'thumbnail',
 					type: 'varchar',
 				},
 			]

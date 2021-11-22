@@ -6,9 +6,9 @@ class ComicsConsulta {
 		const dados = data.data.results.map((dado: any) => {
 			return {
 				id: dado.id,
-				name: dado.name,
+				name: dado.title,
 				description: dado.description,
-				thumbnail: dado.thumbnail,
+				thumbnail: [dado.thumbnail.path, dado.thumbnail.extension],
 				comic: dado.comic,
 			};
 		});

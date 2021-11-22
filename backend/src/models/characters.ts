@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('characters')
-class Charactes {
+class Characters {
     @PrimaryGeneratedColumn('uuid')
     id_uuid: string;
 
@@ -9,10 +9,13 @@ class Charactes {
     id: number;
 
     @Column()
-    characters_name: string;
+    name: string;
 
     @Column()
     description: string;
 
+    @Column()
+    thumbnail: string;
+
 }
-export { Charactes };
+export { Characters };

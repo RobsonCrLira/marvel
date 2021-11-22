@@ -18,13 +18,18 @@ export class CreateComicsTable1621780122050 implements MigrationInterface {
 				{
 					name: 'id',
 					type: 'int',
+					isUnique: true
 				},
 				{
-					name: 'comics_name',
+					name: 'name',
 					type: 'varchar',
 				},
 				{
 					name: 'description',
+					type: 'text',
+				},
+				{
+					name: 'thumbnail',
 					type: 'varchar',
 				},
 			]

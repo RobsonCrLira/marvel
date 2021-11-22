@@ -1,21 +1,29 @@
 import { Router } from 'express';
-// import { ComicsConsulta } from './marvel/comics-consulta/comics';
-// import { CharactersConsulta } from './marvel/characters-consulta/characters';
-import { UserController } from './controllers/userController';
+
+import { UserController } from './controllers/UserController';
 import { AuthController } from './controllers/AuthController';
+import { CharactersController } from './controllers/CharactersController';
+import { ComicsController } from './controllers/ComicsController';
 import authMiddlewares from './middlewares/authmiddlewares';
 
-// const comicsget = new ComicsConsulta();
-// const charactersget = new CharactersConsulta();
 const user = new UserController();
 const auth = new AuthController();
+const characters = new CharactersController();
+const comics = new ComicsController();
 const router = Router();
 
 
-// router.get('/comics', comicsget.execute);
-// router.get('/characters', charactersget.execute);
+router.get('/charactersList', characters.listCharacters);
+router.get('/charactersID/:id', characters.CharactersID);
+router.post('/charactersAdd', characters.addcharacters);
+
+router.get('/comicsList', comics.listComics);
+router.get('/comics/:id', comics.listComics);
+router.post('/comicsAdd', comics.addComics);
+
 router.post('/users', user.create);
-router.post('/auth', auth.execute);
-router.post('/login', authMiddlewares, user.index);
+router.get('/users/:id', user.userID);
+
+router.post('/auth', authMiddlewares, auth.execute);
 
 export default router;
